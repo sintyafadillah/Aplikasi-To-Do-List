@@ -1,0 +1,60 @@
+READ and WRITE "tugas" with string
+READ and WRITE "pilih" with number 
+READ and WRITE "task" with string 
+
+	loop
+        tampilan_menu()
+        pilih = masukan_pilihan()
+        if pilih == "1"
+            task = tambah_deskripsi_tugas()
+            tugas.append(task)
+            print("Tugas Berhasil ditambah dalam list.")
+        else if pilih == "2"
+            display_tugas(tugas)
+        else if pilih == "3"
+            index_tugas = hapus_tugas()
+            tugas.pop(index_tugas)
+            print("Tugas dihapus dari list.")
+        else if pilih == "4"
+            print("Program Berhenti")
+            break
+        else
+            print("Tidak ada pilihan. Silahkan Coba Lagi.")
+    end loop
+end
+
+function tampilan_menu()
+    print("1. Tambah Tugas")
+    print("2. Tampilkan Tugas")
+    print("3. Hapus Tugas")
+    print("4. Keluar")
+end function
+
+function masukan_pilihan()
+    print("Masukkan Pilihan Anda: ")
+    pilih = read_input()
+    return pilih
+end function
+
+function tambah_deskripsi_tugas()
+    print("Masukkan Deskripsi Tugas: ")
+    task = read_input()
+    return task
+end function
+
+function display_tugas(tugas)
+    if len(tugas) == 0
+        print("Tidak ada tugas yang ditampilkan.")
+    else
+        print("Tugas:")
+        for i in range(len(tugas))
+            print(i + 1, ".", tugas[i]) 
+        end for
+    end if
+end function
+
+function hapus_tugas()
+    print("Masukkan Nomor Tugas yang dihapus ")
+    index = read_input()
+    return index - 1
+end function
